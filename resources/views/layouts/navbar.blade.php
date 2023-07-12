@@ -46,6 +46,13 @@
                             </form>
                         </div>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('users') }}">{{ __('Users') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('chat') }}">{{ __('Chat') }}</a>
+                    </li>
                 @endguest
             </ul>
         </div>

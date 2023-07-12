@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Livewire\Chat\CreateChat;
+use App\Http\Livewire\Chat\Main;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +20,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('users', CreateChat::class)->name('users');
+// Route::get('/chat{key?}', Main::class)->name('chat');
+
+Route::get('/users', function(){
+    return view('users');
+})->name('users');
+
+Route::get('/chat{key?}', function(){
+    return view('chat');
+})->name('chat');
 
 Auth::routes();
 
