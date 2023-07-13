@@ -18,7 +18,6 @@ class CreateChat extends Component
     {
 
         // dd($receiverId);
-
         $checkedConversation = Conversation::where('receiver_id', auth()->user()->id)
             ->where('sender_id', $receiverId)
             ->orWhere('receiver_id', $receiverId)

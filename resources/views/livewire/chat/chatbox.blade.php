@@ -1,66 +1,54 @@
+
 <div class="px-4 py-5 chat-box bg-white">
-    <!-- Sender Message-->
-    <div class="media w-50 mb-3"><img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg"
-            alt="user" width="50" class="rounded-circle">
-        <div class="media-body ml-3">
-            <div class="bg-light rounded py-2 px-3 mb-2">
-                <p class="text-small mb-0 text-muted">Test which is a new approach all solutions</p>
+    @if ($selectedConversation)
+        @forelse ($messages as $item)
+            <!-- Reciever Message-->
+            @if ($item->sender_id == $receiverInstance->id)
+                <div class="media w-50 mb-3"><img src="https://picsum.photos/id/2{{$item->receiver_id}}/200/200"
+                        alt="user" width="50" class="rounded-circle">
+                    <div class="media-body ml-3">
+                        <div class="bg-light rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-muted">{{$item->body}}</p>
+                        </div>
+                        <p class="small text-muted">{{  $item->created_at->format('g:i A | F d') }}</p>
+                    </div>
+                </div>
+            @endif
+            <!-- Sender Message-->
+            @if ($item->sender_id == auth()->id())
+                <div class="media w-50 ml-auto mb-3">
+                    <div class="media-body">
+                        <div class="bg-primary rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-white">{{$item->body}}</p>
+                        </div>
+                        <p class="small text-muted">{{  $item->created_at->format('g:i A | F d') }}</p>
+                    </div>
+                </div>
+            @endif
+        @empty
+            <div class="media w-50 ml-auto mb-3">
+                <div class="media-body">
+                    <p class="text-danger">No message available</p>
+                </div>
             </div>
-            <p class="small text-muted">12:00 PM | Aug 13</p>
-        </div>
-    </div>
+        @endforelse
 
-    <!-- Reciever Message-->
-    <div class="media w-50 ml-auto mb-3">
+        
+    @else
+    <div class="">
         <div class="media-body">
-            <div class="bg-primary rounded py-2 px-3 mb-2">
-                <p class="text-small mb-0 text-white">Test which is a new approach to have all
-                    solutions</p>
-            </div>
-            <p class="small text-muted">12:00 PM | Aug 13</p>
+            <h2 class="text-danger text-center">No Conversation Available</h2>
         </div>
     </div>
+    @endif
 
-    <!-- Sender Message-->
-    <div class="media w-50 mb-3"><img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg"
-            alt="user" width="50" class="rounded-circle">
-        <div class="media-body ml-3">
-            <div class="bg-light rounded py-2 px-3 mb-2">
-                <p class="text-small mb-0 text-muted">Test, which is a new approach to have</p>
-            </div>
-            <p class="small text-muted">12:00 PM | Aug 13</p>
-        </div>
-    </div>
 
-    <!-- Reciever Message-->
-    <div class="media w-50 ml-auto mb-3">
-        <div class="media-body">
-            <div class="bg-primary rounded py-2 px-3 mb-2">
-                <p class="text-small mb-0 text-white">Apollo University, Delhi, India Test</p>
-            </div>
-            <p class="small text-muted">12:00 PM | Aug 13</p>
-        </div>
-    </div>
+{{-- នាទី 6:09 --}}
 
-    <!-- Sender Message-->
-    <div class="media w-50 mb-3"><img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg"
-            alt="user" width="50" class="rounded-circle">
-        <div class="media-body ml-3">
-            <div class="bg-light rounded py-2 px-3 mb-2">
-                <p class="text-small mb-0 text-muted">Test, which is a new approach</p>
-            </div>
-            <p class="small text-muted">12:00 PM | Aug 13</p>
-        </div>
-    </div>
 
-    <!-- Reciever Message-->
-    <div class="media w-50 ml-auto mb-3">
-        <div class="media-body">
-            <div class="bg-primary rounded py-2 px-3 mb-2">
-                <p class="text-small mb-0 text-white">Apollo University, Delhi, India Test</p>
-            </div>
-            <p class="small text-muted">12:00 PM | Aug 13</p>
-        </div>
-    </div>
+
+
+
+
 
 </div>

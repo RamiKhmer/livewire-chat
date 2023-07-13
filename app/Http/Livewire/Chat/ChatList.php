@@ -41,7 +41,7 @@ class ChatList extends Component
         # code...
     }
     public function getChatUserInstance(Conversation $conversation, $request)
-    {
+    {  
         # code...
         $this->auth_id = auth()->id();
         //get selected conversation 

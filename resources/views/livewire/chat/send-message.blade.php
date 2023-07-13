@@ -1,5 +1,6 @@
 <div>
-    <form action="#" class="bg-light">
+    @if ($selectedConversation)
+        <form action="#" class="bg-light">
         <div class="input-group">
             <input type="text" placeholder="Type a message" aria-describedby="button-addon2"
                 class="form-control rounded-0 border-0 py-4 bg-light">
@@ -9,4 +10,6 @@
             </div>
         </div>
     </form>
+    @endif
+    
 </div>
