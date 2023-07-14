@@ -2,6 +2,8 @@
 <div class="px-4 py-5 chat-box bg-white">
     @if ($selectedConversation)
         @forelse ($messages as $item)
+
+        <div ></div>
             <!-- Reciever Message-->
             @if ($item->sender_id == $receiverInstance->id)
                 <div class="media w-50 mb-3"><img src="https://picsum.photos/id/2{{$item->receiver_id}}/200/200"
