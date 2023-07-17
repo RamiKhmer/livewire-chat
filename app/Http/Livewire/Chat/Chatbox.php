@@ -23,6 +23,9 @@ class Chatbox extends Component
         $newMessage = Message::find($messageId);
 
         $this->messages->push($newMessage);
+
+        // $this->dispatchBrowserEvent('rowChatToBottom');
+        $this->dispatchBrowserEvent('chatSelected');
         
     }
 

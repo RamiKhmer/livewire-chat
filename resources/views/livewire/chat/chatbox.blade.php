@@ -1,12 +1,10 @@
 
-<div class="px-4 py-5 chat-box bg-white">
+<div class="chatbox_body px-4 py-5 chat-box bg-white">
     @if ($selectedConversation)
         @forelse ($messages as $item)
-
-        <div ></div>
             <!-- Reciever Message-->
             @if ($item->sender_id == $receiverInstance->id)
-                <div class="media w-50 mb-3"><img src="https://picsum.photos/id/2{{$item->receiver_id}}/200/200"
+                <div wire:key='{{$item->id}}' class=" media w-50 mb-3"><img src="https://picsum.photos/id/2{{$item->receiver_id}}/200/200"
                         alt="user" width="50" class="rounded-circle">
                     <div class="media-body ml-3">
                         <div class="bg-light rounded py-2 px-3 mb-2">
@@ -18,7 +16,7 @@
             @endif
             <!-- Sender Message-->
             @if ($item->sender_id == auth()->id())
-                <div class="media w-50 ml-auto mb-3">
+                <div wire:key='{{$item->id}}' class=" media w-50 ml-auto mb-3">
                     <div class="media-body">
                         <div class="bg-primary rounded py-2 px-3 mb-2">
                             <p class="text-small mb-0 text-white">{{$item->body}}</p>

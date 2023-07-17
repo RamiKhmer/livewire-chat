@@ -6,13 +6,13 @@
         </div>
 
         <div class="messages-box">
-            <div class="list-group rounded-0">
-                @forelse ($conversations as $item)
-                    <a wire:click="$emit('chatUserSelected', {{$item}},{{ $this->getChatUserInstance($item, $name = 'id') }})" class="list-group-item list-group-item-action rounded-0">
+            @forelse ($conversations as $item)
+            <div  class="list-group rounded-0">
+                    <a wire:key='{{$item->id}}'  wire:click="$emit('chatUserSelected', {{$item}},{{ $this->getChatUserInstance($item, $name = 'id') }})" class="list-group-item list-group-item-action rounded-0">
                         <div class="media"><img
                                 src="https://picsum.photos/id/2{{ $this->getChatUserInstance($item, $name = 'id') }}/200/200"
                                 alt="user" width="50" class="rounded-circle">
-                            <div class="media-body ml-4">
+                            <div class="media-body ml-4">   
                                 <div class="d-flex align-items-center justify-content-between mb-1">
                                     <h6 class="mb-0">{{ $this->getChatUserInstance($item, $name = 'name') }}</h6>
                                     <small class="small font-weight-bold">
@@ -23,11 +23,11 @@
                             </div>
                         </div>
                     </a>
+                </div>
                 @empty
                     <p class="text-danger">You have no conversation</p>
                 @endforelse
 
-            </div>
         </div>
     </div>
 </div>

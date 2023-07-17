@@ -42,6 +42,7 @@ class SendMessage extends Component
         $this->selectedConversation->save();
 
         $this->emitTo('chat.chatbox', 'pushMessage', $createdMessage->id);
+        $this->emitTo('chat.chat-list', 'refresh');
 
         $this->reset('body');
     }
