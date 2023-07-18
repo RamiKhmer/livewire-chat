@@ -35,7 +35,27 @@
     <script>
         window.addEventListener('chatSelected', event=>{
             $('.chatbox_body').scrollTop($('.chatbox_body')[0].scrollHeight);
+        
+        
+            $('.chatbox_body').scrollTop($('.chatbox_body')[0].scrollHeight);
+            let height = $('.chatbox_body')[0].scrollHeight;
+
+            window.livewire.emit('updateHeight',{
+                height:height,
+            })
         })
+    </script>
+     <script>
+        window.addEventListener('updatedHeight', event=>{
+            let old = event.detail.height;
+            let newHeight = $('.chatbox_body')[0].scrollHeight;
+
+            let height = $('.chatbox_body').scrollTop(newHeight - old);
+
+            window.livewire.emit('updateHeight'. {
+                height:height,
+            });
+        });
     </script>
 </body>
 
